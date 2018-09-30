@@ -1,7 +1,10 @@
+import Link from 'next/link';
+import Page from '../components/Page';
+
 const IndexPage = () => (
-  <div>
+  <Page>
     <p>Hello</p>
-  </div>
+  </Page>
 )
 
 export default IndexPage;

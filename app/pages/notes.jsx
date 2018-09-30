@@ -1,7 +1,9 @@
+import Page from '../components/Page';
+
 const NotePage = () => (
-  <div>
+  <Page>
     <p>I'm a note page!å</p>
-  </div>
+  </Page>
 )
 
 export default NotePage;
