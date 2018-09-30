@@ -11,7 +11,7 @@ class NotesList extends Component {
     const { notes } = this.props.contextValues.state;
     return (
       <NotesListStyles>
-        {notes.map(({ title }) => <p>{title}</p>)}
+        {notes.map(({ title }, i) => <p key={i}>{title}</p>)}
       </NotesListStyles>
     )
   }
