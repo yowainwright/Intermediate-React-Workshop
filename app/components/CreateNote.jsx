@@ -16,6 +16,7 @@ class CreateNote extends Component {
   handleSubmit = (event, saveNote) => {
     event.preventDefault();
     saveNote(this.state);
+    this.setState({ title: '', content: '' });
   }
 
   render () {
