@@ -1,5 +1,5 @@
 import CreateNote from './CreateNote';
-// import Search from '../components/Search';
+import Search from '../components/Search';
 import PageStyles from './styles/PageStyles';
 import Link from 'next/link';
 import styled from 'styled-components';
@@ -20,6 +20,7 @@ const Page = props => (
       </a>
     </Link>
     <CreateNote />
+    <Search />
     {props.children}
   </PageStyles>
 );
