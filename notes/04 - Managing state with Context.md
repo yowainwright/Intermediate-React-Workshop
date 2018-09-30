@@ -15,6 +15,7 @@ We're going to start with a simple example of a boolean called `drawerOpen` that
 Let's start by making `components/NoteProvider.js`.
 
 ```JSX
+
 import React, { Component } from 'react';
 import axios from 'axios';
 import { endpoint } from '../config';
@@ -42,12 +43,14 @@ const NoteConsumer = NoteContext.Consumer;
 
 export default NoteProvider;
 export { NoteConsumer };
+
 ```
 
 Then in order to surface the state and functions to our provider, we pass them like so:
 
 
 ```JSX
+
 <NoteContext.Provider
   value={{
     state: this.state,
@@ -58,6 +61,7 @@ Then in order to surface the state and functions to our provider, we pass them l
 >
   {this.props.children}
 </NoteContext.Provider>
+
 ```
 
 Then we need to inject this provider in at the top of our application so we can _rain down state_ on all of it's component. The best place to do this is in our `_app.js` so that we will maintain state from page to page.
@@ -65,12 +69,15 @@ Then we need to inject this provider in at the top of our application so we can 
 First we need to import that note provider:
 
 ```JSX
+
 import NoteProvider from '../components/NoteProvider';
+
 ```
 
 Then wrap our page in it:
 
 ```diff
+
 <Container>
 +  <NoteProvider>
     <Page>
@@ -78,6 +85,7 @@ Then wrap our page in it:
     </Page>
 +  </NoteProvider>
 </Container>
+
 ```
 
 Now in order to access the values from our state, we use the `NoteConsumer` we exported from the provider file.

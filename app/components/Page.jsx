@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled, { injectGlobal } from 'styled-components';
+import CreateNote from './CreateNote';
 
 injectGlobal`
   html {
@@ -62,6 +63,7 @@ const Page = props => (
         <PageH1Styles>Take Notes!</PageH1Styles>
       </a>
     </Link>
+    <CreateNote />
     {props.children}
   </PageDivStyles>
 );
