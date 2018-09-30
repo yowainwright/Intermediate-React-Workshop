@@ -13,14 +13,19 @@ class CreateNote extends Component {
 
   saveToState = event => this.setState({ [event.target.name]: event.target.value });
 
+  handleSubmit = (event, saveNote) => {
+    event.preventDefault();
+    saveNote(this.state);
+  }
+
   render () {
     return (
       <NoteConsumer>
-        {({ state, toggleDrawer }) => {
+        {({ state, toggleDrawer, saveNote }) => {
           const { content, title } = this.state;
           return (
-            <CreateNoteDropDown open>
-              <Form>
+            <CreateNoteDropDown open={state.drawerOpen}>
+              <Form onSubmit={e => this.handleSubmit(e, saveNote)}>
                 <label htmlFor="title">
                   <input
                     value={title}

@@ -1,6 +1,11 @@
 import Link from 'next/link';
+import ToggleDrawer from '../components/ToggleDrawer';
+
 const IndexPage = () => (
-  <p>Hello</p>
+  <>
+    <ToggleDrawer>Create A New Note</ToggleDrawer>
+    <p>Hello</p>
+  </>
 )
 
 export default IndexPage;
