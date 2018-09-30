@@ -16,19 +16,19 @@ const Search = ({ notes }) => (
             {ds.isOpen &&
               notes
                 .filter(
-                  item => !ds.inputValue || item.title.includes(ds.inputValue)
+                  note => !ds.inputValue || note.title.includes(ds.inputValue)
                 )
-                .map((item, index) => (
+                .map((note, index) => (
                   <li
                     {...ds.getItemProps({
                       key: item._id,
                       index,
-                      item,
+                      note,
                       className:
                         ds.highlightedIndex === index ? 'selected' : '',
                     })}
                   >
-                    {item.title}
+                    {note.title}
                   </li>
                 ))}
           </ul>
