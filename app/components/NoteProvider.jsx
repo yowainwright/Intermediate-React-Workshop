@@ -22,12 +22,17 @@ class NoteProvider extends Component {
           toggleDrawer: () => {
             this.setState({ drawerOpen: !this.state.drawerOpen });
           },
-          saveNote: async (note) => {
-            const res = await axios.post(endpoint, { note });
+          saveNote: async note => {
+            const { data: newNote } = await axios.post(endpoint, { note });
             this.setState({
-              notes: [res.data, ...this.state.notes],
+              notes: [newNote, ...this.state.notes],
               drawerOpen: false,
             });
+            return newNote;
+          },
+          getNotes: async () => {
+            const { data: notes } = await axios.get(endpoint);
+            this.setState({ notes });
           }
         }}
       >

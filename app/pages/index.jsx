@@ -1,11 +1,12 @@
-import Link from 'next/link';
+import CreateNote from '../components/CreateNote';
+import NotesList from '../components/NotesList';
 import ToggleDrawer from '../components/ToggleDrawer';
 
 const IndexPage = () => (
   <>
     <ToggleDrawer>Create A New Note</ToggleDrawer>
-    <p>Hello</p>
+    <NotesList />
   </>
-)
+);
 
 export default IndexPage;
