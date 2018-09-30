@@ -10,15 +10,14 @@ So, what does next.js do then? A few things:
 1. **Pre-fetching** — because Next.js is server rendered - we can request that the server pre-render specific pages and then pre-load them with ease.
 1. **On Demand / Dynamic imports** — lazy load your scripts with ease!
 
-
 ## Our First Page
 
 To Create our first page, simply create an `index.js` file in the `pages/` dir.
 
-
 Then inside of that, we can create a simple React component
 
 ```JSX
+
 const IndexPage = () => (
   <div>
     <p>Hello!</p>
@@ -26,6 +25,7 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
 ```
 
 You'll notice that we are using _stateless functional components__ here - thats just a fancy word for a function that returns JSX.
@@ -36,6 +36,7 @@ Here are a few other ways you could write this:
 
 
 ```JSX
+
 function IndexPage() {
   return (
     <div>
@@ -45,11 +46,13 @@ function IndexPage() {
 }
 
 export default IndexPage;
+
 ```
 
 or as a regular react component:
 
 ```JSX
+
 import React from 'react';
 
 class IndexPage extends React.Component {
@@ -63,11 +66,13 @@ class IndexPage extends React.Component {
 };
 
 export default IndexPage;
+
 ```
 
 You'll also notice that I export my components at the bottom of files - that is a personal preference and you are welcome to export then as you create them as well.
 
 ## Starting the Server
+
 To start the server, run `npm run dev` in your `app` folder.
 
 You should see your site on <http://localhost:9876> - note that I chose the port in the package.json
@@ -77,6 +82,7 @@ You should see your site on <http://localhost:9876> - note that I chose the port
 Go Ahead and create a page called `note.js` and visit <http://localhost:9876/note> - do you see these pages?
 
 ```JSX
+
 const NotePage = () => (
   <div>
     <p>Im the note page!</p>
@@ -84,6 +90,7 @@ const NotePage = () => (
 );
 
 export default NotePage;
+
 ```
 
 Go ahead and view-source on on of these pages as well, you'll see the content of the page in the source, which means that page has been server-rendered.
@@ -91,7 +98,9 @@ Go ahead and view-source on on of these pages as well, you'll see the content of
 Now, how do we link between the two pages? Normally you would just use a link like so:
 
 ```html
+
 <a href="/note">Note</a>
+
 ```
 
 But, that causes a full page reload. We want to harness the power of React and never reload the page - that's why it's called a Single Page Application.
@@ -99,6 +108,7 @@ But, that causes a full page reload. We want to harness the power of React and n
 To do routing in React, we use the router built into Next.js. We can write our link tags like so:
 
 ```JSX
+
 import Link from 'next/link';
 
 const IndexPage = () => (
@@ -111,6 +121,7 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
+
 ```
 
 The only difference here is that the `Link` components get the `href` and there must be an anchor link inside of it that has no `href`.
@@ -128,6 +139,7 @@ Let's create this now, in the `Components` folder:
 
 
 ```JSX
+
 import Link from 'next/link';
 
 const Page = props => (
@@ -142,6 +154,7 @@ const Page = props => (
 );
 
 export default Page;
+
 ```
 
 Notice how we used `{props.children}` above? This means that we can wrap anything in a `<Page>` component and have this general layout work.
@@ -166,6 +179,7 @@ Type the following code in it's entirety. We will come back to the `getInitialPr
 
 
 ```JSX
+
 import App, { Container } from 'next/app';
 import Page from '../components/Page';
 
@@ -192,4 +206,5 @@ class MyApp extends App {
 }
 
 export default MyApp;
+
 ```
