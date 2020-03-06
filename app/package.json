@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "downshift": "^2.2.2",
+    "downshift": "^2.2.3",
     "next": "^7.0.0-canary.16",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
